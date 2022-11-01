@@ -1,1 +1,19 @@
-# mobility_subscription
+# 유저 Trip 분석으로 구독 전환 추천 모델
+
+이용빈도가 잦은 편은 아니지만 단건 요금으로 구독 상품과 비슷하게 지불하는 고객에게 구독 추천하여 장기 고객으로 전환시킨다.
+
+# 가설
+- 짧은 시간을 여러번 이용하는 사람은 구독 고객과 비슷하다.
+- 먼 거리를 이동하는 사람은 구독 고객과 비슷하다.
+- 주말만 이용하는 사람은 일반 고객일 것이다. 
+
+# 데이터 전처리
+- target column imbalanced -> `SMOTENC`oversampling
+
+
+# 모델링
+
+# 해석
+
+# More than
+- oversampling 후 f1 score 가 떨어졌는데 무슨 이유일까?
