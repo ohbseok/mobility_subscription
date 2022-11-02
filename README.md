@@ -7,13 +7,36 @@
 - 먼 거리를 이동하는 사람은 구독 고객과 비슷하다.
 - 주말만 이용하는 사람은 일반 고객일 것이다. 
 
-# 데이터 전처리
-- target column imbalanced -> `SMOTENC`oversampling
+# EDA
+- 구독과 출발 정류소로 되돌아오는지 유무 kendal-tau 상관분석
+  - tau : -0.28, p-value : 0
+- 구독과 다른 도시로 이동하는지 유무 kendal-tau 상관분석
+  - tau : 0.04, p-value : 0 -> 상관 거의 없음
+- 구독과 duration(이동시간) pearson 상관분석
+  - 상관계수 : -0.51, p-value : 0 -> 이동시간이 작을수록 Subscriber
 
+# 데이터 전처리
+- target column imbalanced -> `SMOTENC` oversampling
+- haversine package -> `distance columns` feature engineering
+- right skewed columns -> log transformation
 
 # 모델링
+- oversampling 비교
+  |  f1_score| original |random over |smotenc|
+  |----|:---|:----|:----:|
+  |logistic |0.94 |0.90   |  0.85 |  
+  |lgbmC | 0.95 |0.93  |  0.92  | 
+- encoder 비교
+  |  f1_score |onehot |target | ordinal |
+  |----|:---|:----|:----:|
+  |logistic |0.943 |0.943   |   |  
+  |lgbmC | 0.953 |0.953  |   | 
+  |rfC | 0.936 |0.941  |  0.943  | 
+  
+  
 
 # 해석
 
 # More than
 - oversampling 후 f1 score 가 떨어졌는데 무슨 이유일까?
+- 고객 정보와 가격 데이터가 있었다면 더 정확한 추천이 가능할 것이다. 
