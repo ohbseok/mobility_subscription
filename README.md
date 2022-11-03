@@ -33,10 +33,19 @@
   |lgbmC | 0.953 |0.953  |   | 
   |rfC | 0.936 |0.941  |  0.943  | 
   
+- 튜닝 및 교차검증 후 최종 lgbmC의 f1 score : 0.9535
+  
   
 
 # 해석
+- Permutation importance 결과 
+<img width="232" alt="image" src="https://user-images.githubusercontent.com/94156708/199659120-fdfa18aa-766f-4763-85ac-cb165335b144.png">
+
+- 이용시간이 짧을수록 구독자일 가능성이 높다 -> 가설 일치
+- 이용거리가 길수록 구독자일 가능성이 높다 -> 가설 일치
+- 평일에 이용할수록 구독자일 가능성이 높다 -> 가설 기각
 
 # More than
 - oversampling 후 f1 score 가 떨어졌는데 무슨 이유일까?
 - 고객 정보와 가격 데이터가 있었다면 더 정확한 추천이 가능할 것이다. 
+- 매출이 비슷하더라도 구독으로 장기고객 전환하는 게 비즈니스에 도움 될까?
